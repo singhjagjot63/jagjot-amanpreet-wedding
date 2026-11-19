@@ -338,9 +338,9 @@ footer .banner { margin: 28px calc(50% - 50vw) 0; height: clamp(110px, 24vw, 250
           <ul class="rows">
             <li>Saturday, 2nd January 2027</li>
             <li>Sehra Bandi<i></i><time>9:00 a.m.</time></li>
-            <li>Departure of Barat<i></i><time>11:00 a.m.</time></li>
+            <li>Departure of Barat<i></i><time>10:00 a.m.</time></li>
             <li class="note">From Grand Marian Hotel, Model Town, Ludhiana, Punjab, proceeding to the venue</li>
-            <li>Anand Karaj<i></i><time>10:00 a.m.</time></li>
+            <li>Anand Karaj<i></i><time>11:00 a.m.</time></li>
             <li class="note">Gurdwara Sri Guru Singh Sabha, near CRPF Quarters, Dugri, Phase-1, Ludhiana</li>
           </ul>
           <p class="venue"><b>Venue</b>
@@ -565,8 +565,8 @@ footer .banner { margin: 28px calc(50% - 50vw) 0; height: clamp(110px, 24vw, 250
   else { body.classList.add('locked'); openBtn.focus({ preventScroll: true }); }
   openBtn.addEventListener('click', function () { openCover(false); });
 
-  /* ---------- countdown to the Anand Karaj, 2 Jan 2027, 10:00 a.m. IST ---------- */
-  var target = new Date('2027-01-02T10:00:00+05:30').getTime();
+  /* ---------- countdown to the Anand Karaj, 2 Jan 2027, 11:00 a.m. IST ---------- */
+  var target = new Date('2027-01-02T11:00:00+05:30').getTime();
   var el = { d: document.getElementById('c-d'), h: document.getElementById('c-h'), m: document.getElementById('c-m'), s: document.getElementById('c-s') };
   var box = document.getElementById('count');
   function pad2(n) { return n < 10 ? '0' + n : String(n); }
