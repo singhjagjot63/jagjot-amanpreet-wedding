@@ -205,16 +205,6 @@ h2.sec { font-family: var(--font-script); font-weight: 400; color: var(--maroon)
 .map:hover { color: var(--maroon-deep); border-bottom-color: var(--maroon); }
 .fine { margin: 12px 0 0; font-style: italic; font-size: 1rem; }
 
-/* cards gallery */
-.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: clamp(14px, 3vw, 26px); margin-top: 8px; }
-.gallery figure { margin: 0; display: grid; gap: 10px; align-content: start; }
-.gallery button { appearance: none; padding: 0; border: 1px solid var(--gold); background: var(--paper-2); cursor: zoom-in; display: block; box-shadow: 0 0 0 4px var(--paper), 0 0 0 5px var(--gold-soft); margin: 5px; }
-.gallery img { display: block; width: 100%; height: auto; }
-.gallery figcaption { font-style: italic; font-size: 1rem; line-height: 1.3; }
-.lb { position: fixed; inset: 0; z-index: 80; background: rgba(48, 12, 24, .88); display: grid; place-items: center; padding: max(20px, env(safe-area-inset-top, 0px)) max(20px, env(safe-area-inset-right, 0px)) max(20px, env(safe-area-inset-bottom, 0px)) max(20px, env(safe-area-inset-left, 0px)); }
-.lb img { max-width: 100%; max-height: 100%; width: auto; height: auto; box-shadow: 0 10px 40px rgba(0, 0, 0, .45); }
-.lb button { position: absolute; top: max(14px, env(safe-area-inset-top, 0px)); right: max(14px, env(safe-area-inset-right, 0px)); appearance: none; cursor: pointer; font: inherit; font-size: .85rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 600; color: var(--paper-2); background: transparent; border: 1px solid var(--gold-soft); padding: 8px 16px; }
-
 /* footer */
 footer { padding-top: 24px; text-align: center; }
 footer .bless { margin: 0 auto 6px; max-width: 30em; font-style: italic; font-size: 1.2rem; text-wrap: balance; }
@@ -387,38 +377,6 @@ footer .banner { margin: 28px calc(50% - 50vw) 0; height: clamp(110px, 24vw, 250
     </div>
   </section>
 
-  <section id="cards">
-    <div class="col">
-      <h2 class="sec">The invitation cards</h2>
-      <p class="sec-note">Tap a card to read it in full.</p>
-      <div class="gallery">
-        <figure>
-          <button type="button" data-full="akhand" aria-label="Open the Akhand Path Sahib card">
-            <img id="img-akhand" alt="Invitation card for the marriage ceremony of Jagjot Singh and Amanpreet Kaur with the Akhand Path Sahib programme and Guru Ka Langar" src="assets/card-akhand.jpg" width="720" height="1017" loading="lazy">
-          </button>
-          <figcaption>Akhand Path Sahib &amp; Guru Ka Langar</figcaption>
-        </figure>
-        <figure>
-          <button type="button" data-full="shagun" aria-label="Open the Shagun and Ring Ceremony card">
-            <img id="img-shagun" alt="Invitation card for the Shagun and Ring Ceremony on Friday 1st January 2027 at Grand Marian Hotel, Ludhiana" src="assets/card-shagun.jpg" width="720" height="1017" loading="lazy">
-          </button>
-          <figcaption>Shagun &amp; Ring Ceremony</figcaption>
-        </figure>
-        <figure>
-          <button type="button" data-full="wedding" aria-label="Open the wedding day card">
-            <img id="img-wedding" alt="Invitation card for the wedding on 2nd January 2027 with Sehra Bandi, Departure of Barat and Anand Karaj, at Alley Greens Resorts, Ludhiana" src="assets/card-wedding.jpg" width="720" height="1017" loading="lazy">
-          </button>
-          <figcaption>Wedding day</figcaption>
-        </figure>
-        <figure>
-          <button type="button" data-full="reception" aria-label="Open the wedding reception card">
-            <img id="img-reception" alt="Invitation card for the wedding reception on Monday 4th January 2027 at SK Klyde Grand, Ghaziabad" src="assets/card-reception.jpg" width="720" height="1017" loading="lazy">
-          </button>
-          <figcaption>Wedding reception</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer>
@@ -429,11 +387,6 @@ footer .banner { margin: 28px calc(50% - 50vw) 0; height: clamp(110px, 24vw, 250
   </div>
   <div class="banner" aria-hidden="true"></div>
 </footer>
-
-<div class="lb" id="lb" hidden>
-  <img id="lb-img" alt="">
-  <button type="button" id="lb-close">Close</button>
-</div>
 
 <style id="art">
 :root { --art-banner: url("assets/banner.jpg"); }
@@ -633,20 +586,6 @@ footer .banner { margin: 28px calc(50% - 50vw) 0; height: clamp(110px, 24vw, 250
     el.s.textContent = pad2(diff % 60);
   }
   var iv = setInterval(tick, 1000); tick();
-
-  /* ---------- card viewer ---------- */
-  var lb = document.getElementById('lb'), lbImg = document.getElementById('lb-img'), lbClose = document.getElementById('lb-close');
-  var last = null;
-  document.querySelectorAll('.gallery button').forEach(function (b) {
-    b.addEventListener('click', function () {
-      var src = document.getElementById('img-' + b.getAttribute('data-full'));
-      lbImg.src = src.src; lbImg.alt = src.alt; last = b; lb.hidden = false; lbClose.focus();
-    });
-  });
-  function closeLb() { lb.hidden = true; if (last) last.focus(); }
-  lbClose.addEventListener('click', closeLb);
-  lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !lb.hidden) closeLb(); });
 })();
 </script>
 </body>
