@@ -396,10 +396,10 @@ footer .banner { margin: 28px calc(50% - 50vw) 0; height: clamp(110px, 24vw, 250
 <script>
 (function () {
   /* ---------- background music ----------
-     Plays assets/music.mp3 when that file exists; otherwise an original soft instrumental
+     Plays assets/music.m4a when that file exists; otherwise an original soft instrumental
      (flute, plucked strings, pad, light dholak) is generated in the browser. */
   var Music = (function () {
-    var FILE = 'assets/music.mp3';
+    var FILE = 'assets/music.m4a';
     var BEAT = 60 / 86, BAR = BEAT * 4;
     var ctx, master, vol, send, noiseBuf, timer, nextT = 0, bar = 0;
     var on = false, built = false, el = null, fellBack = false;
